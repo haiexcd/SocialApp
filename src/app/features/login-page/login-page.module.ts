@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
     LoginPageRoutingModule,
     SharedModule,
     MatFormFieldModule,
+    ReactiveFormsModule,
     MatInputModule,
 
   ],

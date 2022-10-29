@@ -1,9 +1,9 @@
 <body>
-    <form action="/action_page.php">
+    <form>
         <div class="imgcontainer">
             <img src="http://www.claudiobernasconi.ch/wp-content/uploads/2013/02/twitter.png" alt="Avatar" class="avatar">
         </div>
-        <div class="container">
+        <div class="container" [formGroup]="form">
             <mat-form-field class="formField" appearance="outline">
                 <mat-label>User Email</mat-label>
                 <input
@@ -14,6 +14,10 @@
                 formControlName="userEmail"
                 matInput  
                 >
+                <mat-error *ngIf="userEmail?.errors?.['minlength']">the user email should contain at least 3 characthers</mat-error>
+                <mat-error *ngIf="userEmail?.errors?.['maxlength']">the user email should contain no more than 50 characthers</mat-error>
+                <mat-error *ngIf="userEmail?.errors?.['required']">user email is required</mat-error>
+                <mat-error *ngIf="userEmail?.errors?.['isValid']">user email does not match our records</mat-error>
             </mat-form-field>
             <mat-form-field class="formField" appearance="outline">
                 <mat-label>Password</mat-label>
@@ -26,7 +30,7 @@
                 matInput
                 >
             </mat-form-field> 
-            <button>Login</button>
+            <button [disabled]="!formgroup.valid" type="submit" (click) = "[onNavigateTo('login'), onLoginClick()]">Login</button>
             <a id="register">No Accounts? Register Now!</a>
             <div class="footer">
                 <input id="checkbox" type="checkbox"> Agreement
