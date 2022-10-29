@@ -3,7 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { LoginPageModule } from './features/login-page/login-page.module';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -12,8 +19,12 @@ import { LoginPageModule } from './features/login-page/login-page.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
     LoginPageModule,
+    SharedModule,
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
