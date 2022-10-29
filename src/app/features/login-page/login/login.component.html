@@ -1,0 +1,37 @@
+<body>
+    <form action="/action_page.php">
+        <div class="imgcontainer">
+            <img src="http://www.claudiobernasconi.ch/wp-content/uploads/2013/02/twitter.png" alt="Avatar" class="avatar">
+        </div>
+        <div class="container">
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>User Email</mat-label>
+                <input
+                class="inputField"
+                type="text"
+                placeholder="Enter User Email"
+                name="uname"
+                formControlName="userEmail"
+                matInput  
+                >
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input
+                class="inputField"
+                type="password"
+                placeholder="Enter Password"
+                name="psw"
+                formControlName="password"
+                matInput
+                >
+            </mat-form-field> 
+            <button>Login</button>
+            <a id="register">No Accounts? Register Now!</a>
+            <div class="footer">
+                <input id="checkbox" type="checkbox"> Agreement
+                <a id="help" href="#">Need Help?</a>
+            </div>         
+        </div>
+    </form>
+</body>
