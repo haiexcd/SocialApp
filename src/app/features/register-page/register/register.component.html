@@ -17,6 +17,7 @@
                         formControlName="username"
                     >
                     <mat-error *ngIf="username?.errors?.['required']">username is required</mat-error>
+                    <mat-error *ngIf="username?.errors?.['isValid']">username is already registered</mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="formField" appearance="outline">
@@ -30,6 +31,7 @@
                         formControlName="email"
                     >
                     <mat-error *ngIf="email?.errors?.['required']">email is required</mat-error>
+                    <mat-error *ngIf="email?.errors?.['isValid']">email is already registered</mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="formField" appearance="outline">
@@ -55,7 +57,8 @@
                         matInput
                         formControlName="passwordConfirm"
                     >
-                    <mat-error *ngIf="passwordConfirm?.errors?.['required']">confirm password is required</mat-error>
+                    <mat-error *ngIf="passwordConfirm?.errors?.['required']">password confirm is required</mat-error>
+                    <mat-error *ngIf="passwordConfirm?.errors?.['isValid']">password confirm should be the same as password</mat-error>
                 </mat-form-field>
                 <button>Register</button>
                 <div class="footer">

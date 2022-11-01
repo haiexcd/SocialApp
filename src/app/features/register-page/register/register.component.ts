@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidateRegisterService } from 'src/app/shared/service/validate-register.service';
+import { confirmPasswordMatch, emailValidator, usernameValidator } from 'src/app/shared/validators/register-validators';
 
 @Component({
   selector: 'app-register',
@@ -12,9 +14,13 @@ export class RegisterComponent implements OnInit {
   form: FormGroup = new FormGroup({
     username: new FormControl('', [
       Validators.required
+    ], [
+      usernameValidator(this.service)
     ]),
     email: new FormControl('', [
       Validators.required,
+    ], [
+      emailValidator(this.service)
     ]),
     password: new FormControl('', [
       Validators.required,
@@ -25,10 +31,18 @@ export class RegisterComponent implements OnInit {
   })
 
 
-  constructor() { }
+  constructor(
+    private service: ValidateRegisterService,
+  ) { }
 
 
   ngOnInit(): void {
+
+    this.form.controls['email'].setAsyncValidators(emailValidator(this.service))
+
+    this.form.controls['username'].setAsyncValidators(usernameValidator(this.service))
+
+    this.form.controls['passwordConfirm'].setValidators(confirmPasswordMatch.confirmPassword(this.form.controls['password'] as FormControl))
 
   }
 
