@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ValidateRegisterService } from 'src/app/shared/service/validate-register.service';
-import { confirmPasswordMatch, emailValidator, usernameValidator } from 'src/app/shared/validators/register-validators';
+import { confirmPasswordMatch, emailValidator, nolower, nospecial, noupper, usernameValidator } from 'src/app/shared/validators/register-validators';
 
 @Component({
   selector: 'app-register',
@@ -24,6 +25,9 @@ export class RegisterComponent implements OnInit {
     ]),
     password: new FormControl('', [
       Validators.required,
+      noupper,
+      nolower,
+      nospecial,
     ]),
     passwordConfirm: new FormControl('', [
       Validators.required,
@@ -33,6 +37,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private service: ValidateRegisterService,
+    private router: Router,
   ) { }
 
 
@@ -60,6 +65,20 @@ export class RegisterComponent implements OnInit {
 
   get passwordConfirm() : FormControl {
     return this.form.get('passwordConfirm') as FormControl
+  }
+
+  get formgroup() : FormGroup {
+    return this.form
+  }
+
+
+  onNavigateTo(dest: string) {
+    this.router.navigateByUrl(dest)
+
+  }
+
+  onSubmit() {
+    this.onNavigateTo('')
   }
 
 

@@ -52,6 +52,43 @@ export class confirmPasswordMatch {
 
 
 
+export function noupper (control: AbstractControl) : ValidationErrors | null {
+    const value = control.value;
+    if (!value) {
+        return null;
+    }
+    const hasUpperCase = /[A-Z]+/.test(value);
+    if (!hasUpperCase){
+        return {"noupper": true}
+    }
+    return null;
+}
+
+export function nolower (control: AbstractControl) : ValidationErrors | null {
+    const value = control.value;
+    if (!value) {
+        return null;
+    }
+    const hasUpperCase = /[a-z]+/.test(value);
+    if (!hasUpperCase){
+        return {"nolower": true}
+    }
+    return null;
+}
+
+export function nospecial (control: AbstractControl) : ValidationErrors | null {
+    const value = control.value;
+    if (!value) {
+        return null;
+    }
+    const hasLowerCase = /[^A-Za-z0-9]+/.test(value);
+    if (!hasLowerCase){
+        return {"nospecial": true}
+    }
+    return null;
+}
+
+
 
 
 

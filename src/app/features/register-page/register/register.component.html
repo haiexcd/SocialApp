@@ -45,6 +45,9 @@
                         formControlName="password"
                     >
                     <mat-error *ngIf="password?.errors?.['required']">password is required</mat-error>
+                    <mat-error *ngIf="password?.errors?.['noupper']">uppercase character required</mat-error>
+                    <mat-error *ngIf="password?.errors?.['nolower']">lowercase character required</mat-error>
+                    <mat-error *ngIf="password?.errors?.['nospecial']">special character required</mat-error>
                 </mat-form-field>
 
                 <mat-form-field class="formField" appearance="outline">
@@ -60,7 +63,7 @@
                     <mat-error *ngIf="passwordConfirm?.errors?.['required']">password confirm is required</mat-error>
                     <mat-error *ngIf="passwordConfirm?.errors?.['isValid']">password confirm should be the same as password</mat-error>
                 </mat-form-field>
-                <button>Register</button>
+                <button [disabled]="!formgroup.valid" (click) = "onSubmit()">Register</button>
                 <div class="footer">
                     <input id="checkbox" type="checkbox"> Agreement
                     <a id="help" href="#">Need Help?</a>
