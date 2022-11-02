@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserProfile } from 'src/app/shared/models/userProfile';
 import { ValidateRegisterService } from 'src/app/shared/service/validate-register.service';
 import { confirmPasswordMatch, emailValidator, nolower, nospecial, noupper, usernameValidator } from 'src/app/shared/validators/register-validators';
 
@@ -78,6 +79,21 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    const profile : UserProfile = {
+      name: this.username?.value!,
+      userName: this.username?.value!,
+      userEmail: this.email?.value!,
+      password: this.password?.value!,
+
+      userRole: "user",
+      age: 25,
+      gender: "hardCodedGender",
+      phone: 911,
+      token: "hardCodedToken",
+    }
+    this.service.registerUser(profile).subscribe(res => {
+      console.log(res)
+    })
     this.onNavigateTo('')
   }
 
