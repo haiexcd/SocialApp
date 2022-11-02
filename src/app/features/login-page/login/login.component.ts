@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
         profile = res
         console.log(profile)    
     })
-    this.router.navigate(['register'])
+    this.router.navigate(['home'])
   }
 
 }
