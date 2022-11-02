@@ -1,0 +1,74 @@
+<body>
+    <form>
+        <div class="imgcontainer">
+            <img src="http://www.claudiobernasconi.ch/wp-content/uploads/2013/02/twitter.png" alt="Avatar"
+            class="avatar"> 
+        </div>
+        <div class="container" [formGroup]="form">
+            <div class="user-details">
+                <mat-form-field class="formField" appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input
+                        class="inputField"
+                        type="text"
+                        placeholder="Enter UserName"
+                        name="uname"
+                        matInput
+                        formControlName="username"
+                    >
+                    <mat-error *ngIf="username?.errors?.['required']">username is required</mat-error>
+                    <mat-error *ngIf="username?.errors?.['isValid']">username is already registered</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="formField" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input
+                        class="inputField"
+                        type="text"
+                        placeholder="Enter Email"
+                        name="email"
+                        matInput
+                        formControlName="email"
+                    >
+                    <mat-error *ngIf="email?.errors?.['required']">email is required</mat-error>
+                    <mat-error *ngIf="email?.errors?.['isValid']">email is already registered</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="formField" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input
+                        class="inputField"
+                        type="password"
+                        placeholder="Enter UserName"
+                        name="psw"
+                        matInput
+                        formControlName="password"
+                    >
+                    <mat-error *ngIf="password?.errors?.['required']">password is required</mat-error>
+                    <mat-error *ngIf="password?.errors?.['noupper']">uppercase character required</mat-error>
+                    <mat-error *ngIf="password?.errors?.['nolower']">lowercase character required</mat-error>
+                    <mat-error *ngIf="password?.errors?.['nospecial']">special character required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="formField" appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input
+                        class="inputField"
+                        type="password"
+                        placeholder="Enter UserName"
+                        name="pswConfirm"
+                        matInput
+                        formControlName="passwordConfirm"
+                    >
+                    <mat-error *ngIf="passwordConfirm?.errors?.['required']">password confirm is required</mat-error>
+                    <mat-error *ngIf="passwordConfirm?.errors?.['isValid']">password confirm should be the same as password</mat-error>
+                </mat-form-field>
+                <button [disabled]="!formgroup.valid" (click) = "onSubmit()">Register</button>
+                <div class="footer">
+                    <input id="checkbox" type="checkbox"> Agreement
+                    <a id="help" href="#">Need Help?</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>

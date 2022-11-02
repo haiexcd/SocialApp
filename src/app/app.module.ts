@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageModule } from './features/login-page/login-page.module';
 
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterPageModule } from './features/register-page/register-page.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
 
     LoginPageModule,
+    RegisterPageModule,
     SharedModule,
     BrowserAnimationsModule,
     

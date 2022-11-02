@@ -1,0 +1,66 @@
+@import "../../../../styles"
+    
+html
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: Arial, Helvetica, sans-serif
+
+form
+    border: 3px solid $dark
+    margin: 1rem
+    background-color: $white
+
+.mat-form-field
+        width: 50%      
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=confirmPassword]
+    width: 100%
+    padding: 12px 20px
+    margin: 8px 0
+    display: inline-block
+    border: 1px solid $light
+    box-sizing: border-box
+
+button
+    background-color: $dark
+    color: white
+    padding: 14px 20px
+    margin: 8px 0
+    border: none
+    cursor: pointer
+    width: 100%
+
+button[disabled]
+    opacity: 0.8
+
+button[disabled]:hover
+    cursor: not-allowed
+
+button:hover
+    opacity: 0.8
+
+.imgcontainer
+    text-align: center
+    margin: 24px 0 12px 0
+
+img.avatar
+    width: 40%
+    border-radius: 50%
+
+.container
+    padding: 16px
+    color: $black
+
+.footer
+    margin: 2rem 0 2rem
+
+#help
+    float: right
+
+.user-details .input-box
+    width: calc(100% / 2)
+    display: inline-block

@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
   }
 
   onNavigateTo(dest: string) {
-    this.router.navigateByUrl(dest)
+    this.router.navigate([dest])
   }
 
   onLoginClick() {
@@ -62,11 +62,10 @@ export class LoginComponent implements OnInit {
     }
     let profile : UserProfile
     this.postService.postLogin(userInfo).subscribe(res => {
-      if (res) {
-      profile = res
-      console.log(profile)
-      } 
+        profile = res
+        console.log(profile)    
     })
+    this.router.navigate(['register'])
   }
 
 }
