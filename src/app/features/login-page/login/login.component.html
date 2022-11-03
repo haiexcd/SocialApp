@@ -2,7 +2,7 @@
     <form>
         <p autohide (click) = "onNavigateTo('register')">Register Now below!</p>
         <div class="imgcontainer">
-            <img src="http://www.claudiobernasconi.ch/wp-content/uploads/2013/02/twitter.png" alt="Avatar" class="avatar">
+            <img src="https://cdn-icons-png.flaticon.com/512/757/757066.png" alt="Avatar" class="avatar">
         </div>
         <div class="container" [formGroup]="form">
             <mat-form-field class="formField" appearance="outline">
@@ -34,7 +34,7 @@
                 <mat-error *ngIf="password?.errors?.['minlength']">the password should contain at least 3 characthers</mat-error>
                 <mat-error *ngIf="password?.errors?.['maxlength']">the password should contain no more than 50 characthers</mat-error>
             </mat-form-field> 
-            <button [disabled]="!formgroup.valid" type="submit" (click) = "onLoginClick()">Login</button>
+            <button [disabled]="!formgroup.valid" type="submit" (click)="onLoginClick()">Login</button>
             <a id="register" (click) = "onNavigateTo('register')">No Accounts? Register Now!</a>
             <div class="footer">
                 <input id="checkbox" type="checkbox"> Agreement

@@ -7,7 +7,10 @@ const routes: Routes = [
   },
   { path: 'register',
   loadChildren: () => import('./features/register-page/register-page.module').then(m => m.RegisterPageModule)
-},
+  },
+  { path: 'home',
+  loadChildren: () => import('./features/home-page/home-page.module').then(m => m.HomePageModule)
+  },
 ];
 
 @NgModule({
