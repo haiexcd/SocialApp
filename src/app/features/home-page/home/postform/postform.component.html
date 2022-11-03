@@ -1,6 +1,6 @@
-<form class="postform">
+<form class="postform" [formGroup]="form">
     <div class="input">
-        <textarea matInput class="text_input" placeholder="What's on your mind?"></textarea>
+        <textarea matInput class="text_input" placeholder="What's on your mind?" formControlName="text"></textarea>
         <div class="file_input">
             No uploaded file yet.
              <button mat-mini-fab class="upload-btn">
@@ -8,5 +8,5 @@
              </button>
          </div>
     </div>
-    <button mat-raised-button class="post_button"><b>Post</b></button>
+    <button mat-raised-button class="post_button" (click)="onPostButtonClick()"><b>Post</b></button>
 </form>

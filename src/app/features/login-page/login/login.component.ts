@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/shared/models/login';
 import { UserProfile } from 'src/app/shared/models/userProfile';
+import { userToken } from 'src/app/shared/models/userToken';
 import { PostLoginService } from 'src/app/shared/service/post-login.service';
 import { ValidateLoginService } from 'src/app/shared/service/validate-login.service';
 import { checkValidate } from 'src/app/shared/validators/checkUsername';
@@ -60,10 +61,14 @@ export class LoginComponent implements OnInit {
       userEmail: this.form.value.userEmail,
       password: this.form.value.password
     }
-    let profile : UserProfile
+    let profile : UserProfile;
+    let token : userToken | null;
     this.postService.postLogin(userInfo).subscribe(res => {
         profile = res
-        console.log(profile)    
+        console.log(profile)
+        this.postService.setToken(res["token"]) 
+        token = this.postService.getToken()
+        console.log(token)   
     })
     this.router.navigate(['home'])
   }
