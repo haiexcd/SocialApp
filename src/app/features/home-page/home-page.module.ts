@@ -10,13 +10,22 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { StoryListComponent } from './home/story-list/story-list.component';
+import { StoryComponent } from './home/story-list/story/story.component';
+import { LikeListComponent } from './home/like-list/like-list.component';
+import { ListDialogComponent } from './home/like-list/list-dialog/list-dialog.component';
 
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    PostformComponent
+    PostformComponent,
+    StoryListComponent,
+    StoryComponent,
+    LikeListComponent,
+    ListDialogComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +36,8 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatDialogModule,
+    
   ]
 })
 export class HomePageModule { }
