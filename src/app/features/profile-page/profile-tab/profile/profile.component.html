@@ -1,0 +1,23 @@
+<div class="profile_page">
+    <mat-card class="profile">
+        <mat-card-header class="header">
+            <img mat-card-avatar class="avatar" src="https://cdn-icons-png.flaticon.com/512/924/924915.png">
+            <mat-card-title class="name">{{userProfile?.userName}}</mat-card-title>
+            <mat-card-subtitle class="email">{{userProfile?.userEmail}}</mat-card-subtitle>
+        </mat-card-header >
+        <mat-card-content class="content">
+            <p><b>Gender:</b> M</p>
+            <p><b>Age:</b> 30</p>
+        </mat-card-content>
+        <div class="count">
+            <div class="comment">
+                <mat-icon> comment</mat-icon>
+                <span>3</span>
+            </div>
+            <div class="like">
+                <mat-icon>favorite_border</mat-icon>
+                <span>0</span>
+            </div>
+        </div>
+    </mat-card>
+</div>
