@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Content, LikeList, NewsfeedStory } from 'src/app/shared/models/newsfeedStory';
 import { NewsfeedStoryService } from 'src/app/shared/service/newsfeed-story.service';
+import { CommentListComponent } from './comment-list/comment-list.component';
 
 @Component({
   selector: 'app-story',
@@ -9,7 +11,10 @@ import { NewsfeedStoryService } from 'src/app/shared/service/newsfeed-story.serv
 })
 export class StoryComponent implements OnInit {
 
-  constructor(private service: NewsfeedStoryService) { }
+  constructor(
+    private service: NewsfeedStoryService,
+    private dialog: MatDialog,
+    ) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +29,20 @@ export class StoryComponent implements OnInit {
       _id: this.post?._id as string
     };
     this.service.addToLikedList(post)
+  }
+
+  onDelete(id: string | undefined) {
+    this.service.deletePost(id).subscribe(res => {
+      console.log(res)
+      this.service.getStoryList()
+    })
+  }
+
+  onCommentClick() {
+    const dialogRef = this.dialog.open(CommentListComponent, {data: this.post})
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res)
+    })
   }
 
 }
