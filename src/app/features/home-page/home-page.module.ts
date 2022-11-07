@@ -15,6 +15,8 @@ import { StoryListComponent } from './home/story-list/story-list.component';
 import { StoryComponent } from './home/story-list/story/story.component';
 import { LikeListComponent } from './home/like-list/like-list.component';
 import { ListDialogComponent } from './home/like-list/list-dialog/list-dialog.component';
+import { CommentListComponent } from './home/story-list/story/comment-list/comment-list.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -25,7 +27,8 @@ import { ListDialogComponent } from './home/like-list/list-dialog/list-dialog.co
     StoryListComponent,
     StoryComponent,
     LikeListComponent,
-    ListDialogComponent
+    ListDialogComponent,
+    CommentListComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +40,7 @@ import { ListDialogComponent } from './home/like-list/list-dialog/list-dialog.co
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    
+    MatPaginatorModule,
   ]
 })
 export class HomePageModule { }

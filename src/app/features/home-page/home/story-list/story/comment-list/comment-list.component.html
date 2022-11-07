@@ -1,0 +1,34 @@
+<div class="dialog-container">
+    <h1 mat-dialog-title>Comments</h1>
+    <form class="postform">
+        <div class="input">
+            <textarea matInput [formControl]="contentText" class="text_input" placeholder="What's on your mind?"></textarea>
+        </div>
+    </form>
+    <button mat-raised-button class="postComment_button" (click)="onPostComment()"><b>Comment</b></button>
+    <div class="comment-container" *ngFor="let comment of this.filteredComments">
+        <mat-card class="comment">
+            <mat-card-header class="user">
+                <img mat-card-avatar class="avatar" src="https://cdn-icons-png.flaticon.com/512/924/924915.png">
+                <mat-card-title class="name">{{comment.publisherName}}</mat-card-title>
+                <mat-card-subtitle class="time">{{comment.publisherTime}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class="text">
+                <p class="content">{{comment.content.text}}</p>
+            </mat-card-content>
+            <mat-card-actions class="action-continer">
+                <div class="action">
+                    <button mat-icon-button class="button" (click)="onDeleteComment(comment._id)">
+                        <mat-icon>delete icon</mat-icon>
+                    </button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <mat-paginator [length]="20"
+               [pageSize]="5"
+               [pageSizeOptions]="[1, 3, 5]"
+               (page)="savePage($event)"
+               aria-label="Select page">
+    </mat-paginator>
+</div>
