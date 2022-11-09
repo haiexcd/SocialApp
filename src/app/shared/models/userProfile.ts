@@ -15,8 +15,8 @@ export interface UserProfile {
 
 export interface UpdateUser {
   name: string;
-  userName: string;
-  userEmail: string;
+  // userName: string;
+  // userEmail: string;
   password: string;
   age: number;
   gender: string;

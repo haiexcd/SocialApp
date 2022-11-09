@@ -68,8 +68,8 @@ export class EditProfileComponent implements OnInit {
   onSave() {
     const profile : UpdateUser = {
       name: this.form.controls['name'].value,
-      userName: this.form.controls['userName'].value,
-      userEmail: this.form.controls['userEmail'].value,
+      // userName: this.form.controls['userName'].value,
+      // userEmail: this.form.controls['userEmail'].value,
       password: this.form.controls['password'].value,
       age: this.form.controls['age'].value,
       gender: this.form.controls['gender'].value,
@@ -78,25 +78,11 @@ export class EditProfileComponent implements OnInit {
     this.updateUserService.updateUser(this.token?._id, profile).subscribe(res => {
       console.log("save result", res)
     })
-    // this.form.reset()
+    this.form.reset()
   }
 
 }
 
-
-
-// onPostComment() {
-//   const userToken = this.tokenService.getToken()
-//   const userName = userToken?.userName
-//   const comment : Comment = {
-//     publisherName: userName,
-//     content: {text: this.contentText.value}
-//   }
-//   this.service.postComment(this.data._id, comment).subscribe(res => {
-//     this.data.comment?.push(res)
-//   })
-//   this.contentText.reset()
-// }
 
 
 
