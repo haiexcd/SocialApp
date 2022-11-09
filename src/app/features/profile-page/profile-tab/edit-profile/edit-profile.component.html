@@ -1,0 +1,44 @@
+<form class="profile-form" [formGroup]="form">
+    <mat-card class="profile">
+        <mat-card-header class="header">
+            <img mat-card-avatar class="avatar" src="https://cdn-icons-png.flaticon.com/512/924/924915.png">
+            <mat-card-title class="name">
+                <input matInput formControlName="name">
+            </mat-card-title>
+            <mat-card-subtitle class="name">{{userProfile?.name}} change your info here</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="content">
+            <!-- <p class="inputs">
+                <mat-label><b>Username: </b></mat-label>
+                <input matInput type="text" formControlName="userName">
+            </p>
+            <p class="inputs">
+                <mat-label><b>Email: </b></mat-label>
+                <input matInput type="email" formControlName="userEmail">
+            </p> -->
+            <p class="inputs">
+                <mat-label><b>Password: </b></mat-label>
+                <input matInput type="password" formControlName="password">
+            </p>
+            <p class="inputs">
+                <mat-label><b>Age: </b></mat-label>
+                <input matInput type="number" formControlName="age">
+            </p>
+            <p class="inputs">
+                <mat-label><b>Gender:</b></mat-label>
+                <mat-select class="selectGender" formControlName="gender" type="text">
+                    <mat-option value=" Female">Female</mat-option>
+                    <mat-option value=" Male">Male</mat-option>
+                    <mat-option value=" Other">Other</mat-option>
+                    <mat-option value=" Prefer not to say">Prefer not to say</mat-option>
+                </mat-select>
+            </p>
+            <p class="inputs">
+                <mat-label><b>Phone: </b></mat-label>
+                <input matInput type="number" formControlName="phone">
+            </p>
+
+        </mat-card-content>
+        <button (click)="onSave()" class="save" mat-raised-button><b>Save</b></button>
+    </mat-card>
+</form>

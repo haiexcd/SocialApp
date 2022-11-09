@@ -12,6 +12,7 @@ import { LoginPageModule } from './features/login-page/login-page.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterPageModule } from './features/register-page/register-page.module';
 import { HomePageModule } from './features/home-page/home-page.module';
+import { ProfilePageModule } from './features/profile-page/profile-page.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { HomePageModule } from './features/home-page/home-page.module';
     RegisterPageModule,
     HomePageModule,
     SharedModule,
+    ProfilePageModule,
     BrowserAnimationsModule,
     
   ],
