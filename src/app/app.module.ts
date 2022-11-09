@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterPageModule } from './features/register-page/register-page.module';
 import { HomePageModule } from './features/home-page/home-page.module';
 import { ProfilePageModule } from './features/profile-page/profile-page.module';
+import { SettingsPageModule } from './features/settings-page/settings-page.module';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ProfilePageModule } from './features/profile-page/profile-page.module';
     HomePageModule,
     SharedModule,
     ProfilePageModule,
+    SettingsPageModule,
     BrowserAnimationsModule,
     
   ],

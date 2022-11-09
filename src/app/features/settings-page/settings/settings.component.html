@@ -1,0 +1,23 @@
+<body>
+    <div class="header">
+        <h2>Settings</h2>
+    </div>
+    <span id="settings_body">
+        <div id="settings">
+            <ul>
+                <li> Appearance</li>
+                <li> Notifications</li>
+                <!-- routes to login page -->
+                <li id="admin" routerLink = "/admin"> Admin</li>
+                <li id="logout" (click) = "logOut()"> Logout</li>
+
+            </ul>
+        </div>
+        <div id="details">
+            <h1>Appearance</h1>
+            <p> Light Mode anything is bad<br>
+            </p>
+        </div>
+    </span>
+    <app-navbar></app-navbar>
+</body>
