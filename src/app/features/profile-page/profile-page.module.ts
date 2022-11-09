@@ -7,9 +7,12 @@ import { ProfileTabComponent } from './profile-tab/profile-tab.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProfileComponent } from './profile-tab/profile/profile.component';
+import { EditProfileComponent } from './profile-tab/edit-profile/edit-profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +20,7 @@ import { ProfileComponent } from './profile-tab/profile/profile.component';
   declarations: [
     ProfileTabComponent,
     ProfileComponent,
+    EditProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +29,8 @@ import { ProfileComponent } from './profile-tab/profile/profile.component';
     SharedModule,
     MatCardModule,
     MatIconModule,
+    MatSelectModule,
+    ReactiveFormsModule,
   ]
 })
 export class ProfilePageModule { }

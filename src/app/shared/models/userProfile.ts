@@ -10,3 +10,15 @@ export interface UserProfile {
     phone: number;
     token: string;
   };
+
+
+
+export interface UpdateUser {
+  name: string;
+  userName: string;
+  userEmail: string;
+  password: string;
+  age: number;
+  gender: string;
+  phone: number;
+}  

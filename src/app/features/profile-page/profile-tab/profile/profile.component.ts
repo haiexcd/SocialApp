@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserProfile } from 'src/app/shared/models/userProfile';
 import { userToken } from 'src/app/shared/models/userToken';
 import { PostLoginService } from 'src/app/shared/service/post-login.service';
+import { UpdateUserService } from 'src/app/shared/service/update-user.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,13 +11,19 @@ import { PostLoginService } from 'src/app/shared/service/post-login.service';
 })
 export class ProfileComponent implements OnInit {
 
-    userProfile: userToken | null | undefined
+    userProfile: UserProfile | null | undefined
+    token: userToken | null | undefined
 
-  constructor(private service: PostLoginService) { }
+  constructor(
+    private service: PostLoginService,
+    private updateUserService: UpdateUserService
+    ) { }
 
   ngOnInit(): void {
-    this.userProfile = this.service.getToken()
-    console.log(this.userProfile)
+    this.token = this.service.getToken()
+    this.updateUserService.getUser(this.token?.userName).subscribe(res => {
+      this.userProfile = res
+    })
   }
 
 
