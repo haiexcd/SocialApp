@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthorizeAdminGuard } from './shared/guards/authorize-admin.guard';
 
 const routes: Routes = [
   { path: '',
@@ -20,7 +21,11 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./features/admin-page/admin-page.module').then(m => m.AdminPageModule)
+    loadChildren: () => import('./features/admin-page/admin-page.module').then(m => m.AdminPageModule),
+    canActivate: [AuthorizeAdminGuard],
+    data: {
+      expectedRoles: ['admin']
+    }
   },
 ];
 
