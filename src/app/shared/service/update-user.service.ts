@@ -1,29 +1,39 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { UpdateUser, UserProfile } from '../models/userProfile';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { UpdateUser, UserProfile, UserProfileId } from '../models/userProfile';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UpdateUserService {
 
+  usersList: UserProfileId[] = []
+  usersSubject = new BehaviorSubject<UserProfileId[]>([])
+
   constructor(
     private http: HttpClient,
   ) { }
 
-    getUser(userName: string | undefined) : Observable<UserProfile> {
-    return this.http.get<UserProfile>(`http://localhost:3000/users/getProfile/${userName}`)
-    }
+  getAllUsers() {
+    this.http.get<UserProfileId[]>('http://localhost:3000/users/getAllUsers').subscribe(values => {
+      this.usersList = values
+      this.usersSubject.next(this.usersList.reverse())
+    })
+  }
 
- 
-  updateUser(id: string | undefined, body : UpdateUser) : Observable<UserProfile> {
-    return this.http.patch<UserProfile>(`http://localhost:3000/users/editProfile/${id}`, body)
+  getUser(userName: string | undefined): Observable<UserProfile> {
+    return this.http.get<UserProfile>(`http://localhost:3000/users/getProfile/${userName}`)
   }
 
 
+  updateUser(id: string | undefined, body: UpdateUser): Observable<UserProfile> {
+    return this.http.patch<UserProfile>(`http://localhost:3000/users/editProfile/${id}`, body)
+  }
 
-  // postComment(id: string | undefined, body: Comment) {
-  //   return this.http.patch<Comment>(`http://localhost:3000/news/addComment/${id}`, body)
-  // }
+  deleteUser(id: string | undefined) {
+    return this.http.delete(`http://localhost:3000/users/deleteUser/${id}`)
+  }
+
+
 }
