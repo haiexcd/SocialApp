@@ -1,0 +1,37 @@
+<body>
+    <span id="users_info_body">
+        <div id="users">
+            <ul>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon fontIcon="diversity_3"></mat-icon>
+                            &nbsp;Users
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <li *ngFor="let user of usersList">
+                        <span *ngIf="showList">
+                            {{ user.userName }}
+                        </span>
+                        <button mat-icon-button (click)="onDelete(user._id)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </li>
+                </mat-expansion-panel>
+            </ul>
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon fontIcon="add"></mat-icon>
+                        &nbsp; Add User
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+            </mat-expansion-panel>
+        </div>
+        <div id="details">
+            <h1>User Details</h1>
+            <app-storylist></app-storylist>
+        </div>
+    </span>
+</body>
+

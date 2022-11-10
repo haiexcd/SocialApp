@@ -23,6 +23,10 @@ export class NewsfeedStoryService {
     })
   }
 
+  getPosts(): Observable<NewsfeedStory[]>{
+    return this.http.get<NewsfeedStory[]>("http://localhost:3000/news/")
+  }
+
   addToLikedList(likedPost: NewsfeedStory) {
     this.likedList.push(likedPost)
     this.likedListSubject.next(this.likedList)

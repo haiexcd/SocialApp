@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'settings',
     loadChildren: () => import('./features/settings-page/settings-page.module').then(m => m.SettingsPageModule)
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./features/admin-page/admin-page.module').then(m => m.AdminPageModule)
+  },
 ];
 
 @NgModule({

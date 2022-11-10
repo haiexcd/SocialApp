@@ -14,6 +14,7 @@ import { RegisterPageModule } from './features/register-page/register-page.modul
 import { HomePageModule } from './features/home-page/home-page.module';
 import { ProfilePageModule } from './features/profile-page/profile-page.module';
 import { SettingsPageModule } from './features/settings-page/settings-page.module';
+import { AdminPageModule } from './features/admin-page/admin-page.module';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { SettingsPageModule } from './features/settings-page/settings-page.modul
     SharedModule,
     ProfilePageModule,
     SettingsPageModule,
+    AdminPageModule,
     BrowserAnimationsModule,
     
   ],
