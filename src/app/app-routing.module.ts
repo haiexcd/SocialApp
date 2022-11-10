@@ -18,18 +18,26 @@ const routes: Routes = [
    }
   },
   { path: 'profile',
-  loadChildren: () => import('./features/profile-page/profile-page.module').then(m => m.ProfilePageModule)
+  loadChildren: () => import('./features/profile-page/profile-page.module').then(m => m.ProfilePageModule),
+  canActivate: [AuthorizeUserGuard],
+  data: {
+   role: ['user', 'admin']
+  }
   },
   {
     path: 'settings',
-    loadChildren: () => import('./features/settings-page/settings-page.module').then(m => m.SettingsPageModule)
+    loadChildren: () => import('./features/settings-page/settings-page.module').then(m => m.SettingsPageModule),
+    canActivate: [AuthorizeUserGuard],
+    data: {
+     role: ['user', 'admin']
+    }
   },
   {
     path: 'admin',
     loadChildren: () => import('./features/admin-page/admin-page.module').then(m => m.AdminPageModule),
     canActivate: [AuthorizeAdminGuard],
     data: {
-      expectedRoles: ['admin']
+      role: ['admin']
     }
   },
 ];
