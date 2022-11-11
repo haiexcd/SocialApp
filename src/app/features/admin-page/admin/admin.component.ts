@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserProfileId } from 'src/app/shared/models/userProfile';
 import { UpdateUserService } from 'src/app/shared/service/update-user.service';
 
@@ -10,7 +10,7 @@ import { UpdateUserService } from 'src/app/shared/service/update-user.service';
 })
 export class AdminComponent implements OnInit {
 
-
+  @Input() selectedUser: string | undefined = ''  
   showList = false
   usersList: UserProfileId[] = []
 
@@ -31,6 +31,11 @@ export class AdminComponent implements OnInit {
       console.log(res)
       this.service.getAllUsers()
     })
+  }
+
+  onComment(userName: string | undefined) {
+    this.selectedUser = userName
+    console.log(this.selectedUser)
   }
 
 }

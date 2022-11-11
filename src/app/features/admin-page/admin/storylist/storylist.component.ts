@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NewsfeedStory } from 'src/app/shared/models/newsfeedStory';
 import { NewsfeedStoryService } from 'src/app/shared/service/newsfeed-story.service';
 
@@ -14,6 +14,8 @@ export class StorylistComponent implements OnInit {
   constructor(
     private service: NewsfeedStoryService, 
   ) { }
+
+  @Input() user: string | undefined
 
   ngOnInit(): void {
     this.service.getPosts().subscribe(values => {

@@ -9,13 +9,13 @@
                             &nbsp;Users
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <li *ngFor="let user of usersList">
+                    <li *ngFor="let user of usersList" (click)="onComment(user.userName)">
                         <span *ngIf="showList">
                             {{ user.userName }}
                         </span>
                         <button mat-icon-button (click)="onDelete(user._id)">
                             <mat-icon>delete</mat-icon>
-                        </button>
+                        </button>    
                     </li>
                 </mat-expansion-panel>
             </ul>
@@ -30,7 +30,7 @@
         </div>
         <div id="details">
             <h1>User Details</h1>
-            <app-storylist></app-storylist>
+            <app-storylist [user]="selectedUser"></app-storylist>
         </div>
     </span>
 </body>

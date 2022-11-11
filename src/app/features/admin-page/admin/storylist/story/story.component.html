@@ -1,4 +1,4 @@
-<mat-card class="story">
+<mat-card class="story" *ngIf="checkPost()">
     <mat-card-header class="user">
         <img mat-card-avatar class="avatar" src="https://cdn-icons-png.flaticon.com/512/924/924915.png">
         <mat-card-title class="name">{{post?.publisherName}}</mat-card-title>

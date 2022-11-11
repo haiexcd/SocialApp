@@ -14,5 +14,14 @@ export class StoryComponent implements OnInit {
   }
 
   @Input() post? : NewsfeedStory
+  @Input() selectedUser: string | undefined
+
+
+  checkPost() : Boolean {
+    if (this.post?.publisherName === this.selectedUser) {
+      return true
+    } 
+    return false
+  }
 
 }
