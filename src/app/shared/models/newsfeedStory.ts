@@ -1,6 +1,7 @@
 export interface NewsfeedStory {
     publisherName: string | undefined;
     publisherTime?: string;
+    publisherImg: string | undefined;
     content: Content;
     comment?: Comment[];
     likedIdList?: LikedIdList[];
@@ -29,6 +30,7 @@ export interface Comment {
 export interface LikeList {
     publisherName: string;
     publisherTime: string;
+    publisherImg: string | undefined;
     content: Content;
     _id: string;
 }

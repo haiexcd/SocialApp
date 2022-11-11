@@ -9,6 +9,7 @@ export interface UserProfile {
     gender: string;
     phone: number;
     token: string;
+    img: string;
   };
 
 
@@ -24,6 +25,7 @@ export interface UserProfile {
     phone: number;
     token: string;
     _id: string;
+    img: string;
   };
 
 
@@ -36,4 +38,5 @@ export interface UpdateUser {
   age: number;
   gender: string;
   phone: number;
+  img: string;
 }  

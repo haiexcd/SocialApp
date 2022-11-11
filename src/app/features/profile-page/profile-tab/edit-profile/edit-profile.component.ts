@@ -22,6 +22,7 @@ export class EditProfileComponent implements OnInit {
     age: new FormControl(''),
     gender: new FormControl(''),
     phone: new FormControl(''),
+    img: new FormControl(''),
   })
 
   constructor(
@@ -64,6 +65,10 @@ export class EditProfileComponent implements OnInit {
     return this.form.get('phone') as FormControl
   }
 
+  get img() : FormControl {
+    return this.form.get('img') as FormControl
+  }
+
 
   onSave() {
     const profile : UpdateUser = {
@@ -74,6 +79,7 @@ export class EditProfileComponent implements OnInit {
       age: this.form.controls['age'].value,
       gender: this.form.controls['gender'].value,
       phone: this.form.controls['phone'].value,
+      img: this.form.controls['img'].value,
     }
     this.updateUserService.updateUser(this.token?._id, profile).subscribe(res => {
       console.log("save result", res)

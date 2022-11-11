@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserProfile } from 'src/app/shared/models/userProfile';
+import { UserProfile, UserProfileId } from 'src/app/shared/models/userProfile';
 import { userToken } from 'src/app/shared/models/userToken';
 import { PostLoginService } from 'src/app/shared/service/post-login.service';
 import { UpdateUserService } from 'src/app/shared/service/update-user.service';

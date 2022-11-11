@@ -1,6 +1,6 @@
 <mat-card class="story">
     <mat-card-header class="user">
-        <img mat-card-avatar class="avatar" src="https://cdn-icons-png.flaticon.com/512/924/924915.png">
+        <img mat-card-avatar class="avatar" src="{{post?.publisherImg}}">
         <mat-card-title class="name">{{post?.publisherName}}</mat-card-title>
         <mat-card-subtitle class="time">{{post?.publisherTime | date:"short" }}</mat-card-subtitle>
     </mat-card-header>

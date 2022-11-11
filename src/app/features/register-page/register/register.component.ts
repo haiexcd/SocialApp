@@ -90,6 +90,7 @@ export class RegisterComponent implements OnInit {
       gender: "hardCodedGender",
       phone: 911,
       token: "hardCodedToken",
+      img: 'https://cdn-icons-png.flaticon.com/512/924/924915.png'
     }
     this.service.registerUser(profile).subscribe(res => {
       console.log(res)

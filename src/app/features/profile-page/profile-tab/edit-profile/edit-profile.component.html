@@ -1,11 +1,11 @@
 <form class="profile-form" [formGroup]="form">
     <mat-card class="profile">
         <mat-card-header class="header">
-            <img mat-card-avatar class="avatar" src="https://cdn-icons-png.flaticon.com/512/924/924915.png">
+            <img mat-card-avatar class="avatar" src="{{userProfile?.img}}">
             <mat-card-title class="name">
-                <input matInput formControlName="name">
+                <input matInput formControlName="name" placeholder="Enter name">
             </mat-card-title>
-            <mat-card-subtitle class="name">{{userProfile?.name}} change your info here</mat-card-subtitle>
+            <mat-card-subtitle class="name" >{{userProfile?.name}} change your info here</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="content">
             <!-- <p class="inputs">
@@ -36,6 +36,10 @@
             <p class="inputs">
                 <mat-label><b>Phone: </b></mat-label>
                 <input matInput type="number" formControlName="phone">
+            </p>
+            <p class="inputs">
+                <mat-label><b>Avatar: </b></mat-label>
+                <input matInput type="text" formControlName="img">
             </p>
 
         </mat-card-content>

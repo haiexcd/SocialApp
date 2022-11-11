@@ -26,7 +26,8 @@ export class StoryComponent implements OnInit {
       publisherName: this.post?.publisherName as string,
       publisherTime: this.post?.publisherTime as string,
       content: this.post?.content as Content,
-      _id: this.post?._id as string
+      _id: this.post?._id as string,
+      publisherImg: undefined
     };
     this.service.addToLikedList(post)
   }
