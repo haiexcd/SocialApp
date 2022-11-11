@@ -18,9 +18,18 @@ export class StorylistComponent implements OnInit {
   @Input() user: string | undefined
 
   ngOnInit(): void {
-    this.service.getPosts().subscribe(values => {
+
+
+
+    this.service.storySubject.subscribe(values => {
       this.postList = values
     })
+    this.service.getStoryList()
   }
 
 }
+
+
+
+
+

@@ -15,10 +15,9 @@
             <span>{{post?.comment?.length}}</span>
         </div>
         <div class="action">
-            <button mat-icon-button class = "button">
-                <mat-icon>favorite_border</mat-icon>
+            <button mat-icon-button class = "button" (click)="deletePost(post?._id)">
+                <mat-icon>delete</mat-icon>
             </button>
-            <span>{{post?.likedIdList?.length}}</span>
         </div>
     </mat-card-actions>
 </mat-card>
