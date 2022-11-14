@@ -23,6 +23,7 @@ export interface Comment {
     content: Content;
     publisherName: string | undefined;
     publisherTime?: string;
+    publisherImg: string | undefined;
     _id?: string;
 }
 

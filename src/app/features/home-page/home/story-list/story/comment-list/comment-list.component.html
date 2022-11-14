@@ -6,7 +6,7 @@
         </div>
     </form>
     <button mat-raised-button class="postComment_button" (click)="onPostComment()"><b>Comment</b></button>
-    <div class="comment-container" *ngFor="let comment of this.filteredComments">
+    <div class="comment-container" *ngFor="let comment of this.comments">
         <mat-card class="comment">
             <mat-card-header class="user">
                 <img mat-card-avatar class="avatar" src="https://cdn-icons-png.flaticon.com/512/924/924915.png">

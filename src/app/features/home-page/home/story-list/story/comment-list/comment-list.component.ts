@@ -3,8 +3,11 @@ import { FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { Comment, NewsfeedStory } from 'src/app/shared/models/newsfeedStory';
+import { UserProfile } from 'src/app/shared/models/userProfile';
+import { userToken } from 'src/app/shared/models/userToken';
 import { PostCommentService } from 'src/app/shared/service/comment.service';
 import { PostLoginService } from 'src/app/shared/service/post-login.service';
+import { UpdateUserService } from 'src/app/shared/service/update-user.service';
 
 @Component({
   selector: 'app-comment-list',
@@ -16,6 +19,9 @@ export class CommentListComponent implements OnInit {
   comments: Comment[] | undefined = this.data.comment
   filteredComments: Comment[] | undefined = this.comments
 
+  userProfile: UserProfile | null | undefined
+  token: userToken | null | undefined
+
   pageSize: number = 3;
   pageIndex: number = 1;
   
@@ -25,9 +31,14 @@ export class CommentListComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: NewsfeedStory,
     private service: PostCommentService,
     private tokenService: PostLoginService,
+    private updateUserService: UpdateUserService,
   ) { }
 
   ngOnInit(): void {
+    this.token = this.tokenService.getToken()
+    this.updateUserService.getUser(this.token?.userName).subscribe(res => {
+      this.userProfile = res
+    })
   }
 
   savePage(event: PageEvent){
@@ -41,12 +52,14 @@ export class CommentListComponent implements OnInit {
   }
 
   onPostComment() {
-    const userToken = this.tokenService.getToken()
+    const userToken = this.token
     const userName = userToken?.userName
     const comment : Comment = {
       publisherName: userName,
+      publisherImg: this.userProfile?.img,
       content: {text: this.contentText.value}
     }
+    console.log(comment?.publisherImg)
     this.service.postComment(this.data._id, comment).subscribe(res => {
       this.data.comment?.push(res)
     })
